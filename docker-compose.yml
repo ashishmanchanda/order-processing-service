@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  order-service:
+    build: .
+    container_name: order-management-service
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      # Scheduler every 30s for easy demo observation
+      - SCHEDULER_ORDER_PROMOTE_INTERVAL=30000
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+# ── Optional: PostgreSQL for prod-like local testing ───────────────────────────
+# Uncomment the block below and set SPRING_PROFILES_ACTIVE=prod to use Postgres:
+#
+#  postgres:
+#    image: postgres:16-alpine
+#    container_name: order-postgres
+#    environment:
+#      POSTGRES_DB: orderdb
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: secret
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - pg_data:/var/lib/postgresql/data
+#
+#volumes:
+#  pg_data:
