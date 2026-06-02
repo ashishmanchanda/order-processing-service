@@ -170,7 +170,7 @@ src/main/java/com/orders/orderservice/
 │   └── OrderStatus.java (enum)
 ├── dto/                               # Request/Response DTOs
 ├── exception/                         # Custom exceptions + global handler
-└── config/                            # MapStruct mapper, OpenAPI config
+└── config/                            # MapStruct mapper
 ```
 
 
