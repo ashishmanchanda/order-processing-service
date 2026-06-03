@@ -17,7 +17,7 @@
     <artifactId>order-processing-service</artifactId>
     <version>1.0.0</version>
     <name>order-service</name>
-    <description>Order Management Service - Production Ready Spring Boot App</description>
+    <description>Order Processing Service - Production Ready Spring Boot App</description>
     <packaging>jar</packaging>
 
     <properties>

@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("/api/v1/orders")
 @RequiredArgsConstructor
 @Slf4j
-@Tag(name = "Orders", description = "Order Management APIs")
+@Tag(name = "Orders", description = "Order Processing APIs")
 public class OrderController {
 
     private final OrderService orderService;
