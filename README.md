@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS order_items (
 
 **One-liner (from the project root):**
 ```bash
-cd order-management-service && SPRING_PROFILES_ACTIVE=prod DB_URL=jdbc:postgresql://localhost:5432/orderdb DB_USERNAME=postgres DB_PASSWORD=changeme java -jar target/order-service-1.0.0.jar
+cd order-processing-service && SPRING_PROFILES_ACTIVE=prod DB_URL=jdbc:postgresql://localhost:5432/orderdb DB_USERNAME=postgres DB_PASSWORD=changeme java -jar target/order-processing-service-1.0.0.jar
 ```
 
 **Or with explicit JVM flags:**
@@ -205,13 +205,13 @@ SELECT * FROM order_items;
 
 ### Troubleshooting
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| `Unable to access jarfile` | Wrong directory or jar not built | `cd order-management-service` then `mvn clean package -DskipTests` |
-| `missing column [x] in table` | Table schema doesn't match entities | Re-run the CREATE TABLE SQL from Step 2c |
+| Error | Cause | Fix                                                                                    |
+|-------|-------|----------------------------------------------------------------------------------------|
+| `Unable to access jarfile` | Wrong directory or jar not built | `cd order-processing-service` then `mvn clean package -DskipTests`                     |
+| `missing column [x] in table` | Table schema doesn't match entities | Re-run the CREATE TABLE SQL from Step 2c                                               |
 | `Connection refused` on 5432 | PostgreSQL not running | `sudo systemctl start postgresql` (Linux) or `brew services start postgresql@16` (Mac) |
-| `password authentication failed` | Wrong credentials | Check `DB_PASSWORD` matches what you set in pgAdmin |
-| Locale mismatch on DB creation | `template1` locale conflict | Use `template0` in pgAdmin Definition tab |
+| `password authentication failed` | Wrong credentials | Check `DB_PASSWORD` matches what you set in pgAdmin                                    |
+| Locale mismatch on DB creation | `template1` locale conflict | Use `template0` in pgAdmin Definition tab                                              |
 
 ---
 
